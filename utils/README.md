@@ -22,9 +22,8 @@ The system was built to operate under real-world constraints such as authenticat
 
 ## Architecture
 
-The project is organized into modular layers:
 
-### `app.py`
+### `ui/app.py`
 Main Streamlit application and user interface.  
 Handles:
 - file upload
@@ -33,11 +32,11 @@ Handles:
 - export options
 - triggering the automation workflow
 
-### `parser.py`
+### `ui/emailParser.py`
 Parses raw email bodies and reconstructs reply threads using regex-based chunking.  
 Responsible for identifying reply boundaries and preserving sender context.
 
-### `data_processing.py`
+### `ui/data_processing.py`
 Processes uploaded CSV data into structured thread records.  
 Handles:
 - email cleanup
@@ -45,13 +44,13 @@ Handles:
 - thread merging
 - export formatting
 
-### `auth.py`
+### `ui/auth.py`
 Provides a Tkinter-based credentials popup used to collect login information securely before launching the upload workflow.
 
 ### `src/upload.py`
 Executes the automation workflow that submits processed thread data into Council Connect.
 
-### `automation.py`
+### `src/automation.py`
 Contains the Selenium automation logic used for authenticated browser interaction, navigation, and workflow execution.
 
 ## How to run
